@@ -104,9 +104,12 @@ export async function validateCompetitionNotStarted(req, res, next) {
   }
 }
 
+
 export async function validateCompetitionInProgress(req, res, next) {
+  const { competitionId } = req.params;
+
   try {
-    const status = await getCompetitionStatus();
+    const status = await getCompetitionStatus(competitionId);
 
     if (status === null) {
       return res.status(404).json({
@@ -129,3 +132,4 @@ export async function validateCompetitionInProgress(req, res, next) {
     });
   }
 }
+

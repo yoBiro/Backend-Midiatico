@@ -31,7 +31,7 @@ router.get("/teams/:id", validateTeamId, validateTeamExists, teamsController.get
 router.put("/teams/:id", validateTeamId, validateTeamExists, validateTeamUpdateData, teamsController.updateTeamController);
 router.delete("/teams/:id", validateTeamId, validateTeamExists, teamsController.deleteTeamController);
 
-router.patch("/teams/:id/points", validateTeamId, validateTeamExists, validateCompetitionInProgress, validateTeamPoints, teamsController.updateTeamPartialPointsController);
+router.patch("/competition/:competitionId/teams/:id/points", validateTeamId, validateTeamExists, validateCompetitionInProgress, validateTeamPoints, teamsController.updateTeamPartialPointsController);
 
 
 export default router;
